@@ -1,0 +1,188 @@
+## 1、等待/通知机制
+
+​    等待/通知机制，是指一个线程A调用了对象O的wait()方法进入等待状态，而另一个线程B调用了对象O的notify()或者notifyAll()方法，线程A收到通知后从对象O的wait()方法返回，进而执行后续操作。上述两个线程通过对象O来完成交互，而对象上的wait()和notify/notifyAll()的关系就如同开关信号一样，用来完成等待方和通知方之间的交互工作。
+
+![](../../img/多线程/9.1.png)
+
+
+```java
+package com.zte.test.factory;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Test4 {
+    static boolean flag = true;
+    static Object lock = new Object();
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread waitThread = new Thread(new Wait(), "WaitThread");
+        waitThread.start();
+        Thread.sleep(5000);
+        Thread notifyThread = new Thread(new Notify(), "NotifyThread");
+        notifyThread.start();
+
+    }
+
+    static class Wait implements Runnable {
+        @Override
+        public void run() {
+            synchronized (lock) {
+                while (flag) {
+                    try {
+                        System.out.println(Thread.currentThread() + "flag is true.wait " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            System.out.println(Thread.currentThread() + "flag is false.running " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        }
+    }
+
+
+    static class Notify implements Runnable {
+        @Override
+        public void run() {
+            synchronized (lock) {
+                try {
+                    System.out.println(Thread.currentThread() + "hold lock.notify " + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+                    lock.notifyAll();
+                    flag = false;
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+```
+
+使用wait()、notify()以及notifyAll()时需要注意的细节，如下：
+
+- 使用wait()、notify()和notifyAll()时需要先对调用对象加锁。
+- 调用wait()方法后，线程状态由RUNNING变为WAITING，并将当前线程放置到对象的等待队列。
+- notify()或notifyAll()方法调用后，等待线程依旧不会从wait()返回，需要调用notify()或notifyAll()的线程释放锁之后，等待线程才有机会从wait()返回。
+- notify()方法将等待队列中的一个等待线程从等待队列中移到同步队列中，而notifyAll()方法则是将等待队列中所有的线程全部移到同步队列，被移动的线程状态由WAITING变为BLOCKED。
+- 从wait()方法返回的前提是活的了调用对象的锁。
+
+## 2、管道输入/输出流
+
+  管道输入/输出流和普通的文件输入/输出流或者网络输入/输出流不同之处在于，它主要用于线程之间的数据传输，而传输的媒介为内存。管道输入/输出主要包括如下4种实现：PipedOutPutStream、PipedInputStream、PipedReader和PipedWriter，前两种面向字节，而后两种面向字符。
+
+```java
+package com.zte.test.factory;
+
+import java.io.IOException;
+import java.io.PipedReader;
+import java.io.PipedWriter;
+
+public class Test4 {
+
+    public static void main(String[] args) throws InterruptedException, IOException {
+        PipedWriter out = new PipedWriter();
+        PipedReader in = new PipedReader();
+        //将输出流和输入流进行连接
+        out.connect(in);
+        Thread printThread = new Thread(new Print(in), "PrintThread");
+        printThread.start();
+        int receive = 0;
+
+        try {
+            while ((receive = System.in.read()) != -1) {
+                out.write(receive);
+            }
+        } finally {
+            out.close();
+        }
+    }
+
+    static class Print implements Runnable {
+
+        private PipedReader in;
+
+        public Print(PipedReader in) {
+            this.in = in;
+        }
+
+        @Override
+        public void run() {
+            int receive = 0;
+            try {
+                while ((receive = in.read()) != -1) {
+                    System.out.print((char) receive);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
+```
+
+  创建了printThread，它用来接收main线程的输入，任何main线程的输入均通过PipedWriter写入，而printThread在另一端通过PipedReader将内容读出并打印。
+
+## 3、Thread.join()的使用
+
+如果一个线程A执行了thread.join()语句，其含义是：当前线程A等待thread线程终止之后才从thread.join()返回。线程Thread除了提供join()方法之外，还提供了join(long millis)和join(long mills,int nanos)两个具备超时特性的方法。这两个超时方法表示，如果线程thread在给定的超时时间里没有终止，那么将会从该超时方法种返回。
+
+```java
+package com.zte.test.factory;
+
+public class Test4 {
+    public static void main(String[] args) throws InterruptedException {
+        Thread previous = Thread.currentThread();
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new Domino(previous), String.valueOf(i));
+            thread.start();
+            previous = thread;
+        }
+
+        Thread.sleep(5);
+        System.out.println(Thread.currentThread().getName() + " terminate.");
+    }
+
+    static class Domino implements Runnable {
+        private Thread thread;
+
+        public Domino(Thread thread) {
+            this.thread = thread;
+        }
+
+        @Override
+        public void run() {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() + "  terminate.");
+        }
+    }
+
+}
+
+结果：
+main terminate.
+0  terminate.
+1  terminate.
+2  terminate.
+3  terminate.
+4  terminate.
+5  terminate.
+6  terminate.
+7  terminate.
+8  terminate.
+9  terminate.
+```
+
+## 4、ThreadLocal的使用
+
+详见： https://www.jianshu.com/p/e80053587723 
+
+## 5、参考资料
+
+1、《线程并发的艺术》
