@@ -5,9 +5,9 @@
 
 # Site
 title: XianGong Blog
-subtitle:
-description: 善始者众，善众者寡
-author: John Doe
+subtitle: 善始者众，善终者寡
+description: 善始者众，善终者寡
+author: XianGong
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: en
 date_format: '%Y-%m-%d'
@@ -118,7 +118,7 @@ index_with_subtitle: false
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  #categories: /categories/
+  categories: /categories/
   #about: /about/
   archives: /archives/
   tags: /tags/
