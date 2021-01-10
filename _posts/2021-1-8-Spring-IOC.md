@@ -1,10 +1,10 @@
 ---
-title: spring学习-IOC
+title: Spring学习-IOC
 date: 2021-1-8 23:29:53
 categories:
-- spring
+- Spring
 tags:
-- spring
+- Spring
 ---
 
 ## 1、Ioc容器简介

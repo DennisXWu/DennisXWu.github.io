@@ -1,10 +1,10 @@
 ---
-title: spring学习-装配Bean
+title: Spring学习-装配Bean
 date: 2021-1-8 23:29:53
 categories:
-- spring
+- Spring
 tags:
-- spring
+- Spring
 ---
 
 装配Bean的三种主要机制:

@@ -1,10 +1,10 @@
 ---
-title: shell学习-Shell脚本实例解析
+title: Shell学习-Shell脚本实例解析
 date: 2021-1-8 23:29:53
 categories:
-- shell
+- Shell
 tags:
-- shell
+- Shell
 ---
 
 ## 1、变量
