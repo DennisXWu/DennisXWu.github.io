@@ -1,3 +1,12 @@
+---
+title: jvm学习-Java内存区域与溢出异常
+date: 2021-1-8 23:29:53
+categories:
+- jvm
+tags:
+- jvm
+---
+
 # JVM学习—Java内存区域与溢出异常
 
 ## 1、为什么要学习java内存区域？
@@ -8,7 +17,7 @@
 
 ​        Java虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个不同数据区域。如图所示：
 
-​            ![](../../img/jvm/2.1.png)
+​            ![]({{ site.url }}/assets/img/jvm/2.1.png)
 
 
 ​	 1、程序计数器
@@ -47,14 +56,14 @@
 
 ​                Java堆中会划分一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例和数据类型各自的具体地址信息。
 
-​             ![](../../img/jvm/2.2.png)
+​             ![]({{ site.url }}/assets/img/jvm/2.2.png)
 
 
  2、直接指针访问方式
 
 ​              reference中直接存储就是对象地址，此方法的好处就是速度快。HotSpot虚拟机就用的这种方式。
 
-​            ![](../../img/jvm/2.3.png)
+​            ![]({{ site.url }}/assets/img/jvm/2.3.png)
 
 
 ## 4、思考题

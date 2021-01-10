@@ -1,3 +1,12 @@
+---
+title: 多线程学习—Synchronized和Volatile
+date: 2021-1-8 23:29:53
+categories:
+- 多线程
+tags:
+- 多线程
+---
+
 ## 1、Synchronized关键字介绍
 
 ### 1.1、什么是Synchronized锁

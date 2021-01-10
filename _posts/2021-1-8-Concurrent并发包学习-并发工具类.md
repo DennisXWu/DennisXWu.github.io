@@ -1,3 +1,12 @@
+---
+title: Concurrent并发包学习-并发工具类
+date: 2021-1-8 23:29:53
+categories:
+- 多线程
+tags:
+- 多线程
+---
+
 ## 1、闭锁CountDownLatch
 
   java.util.concurrent.CountDownLatch 是一个并发构造，**它允许一个或多个线程等待一系列指定操作的完成**。 
@@ -30,8 +39,7 @@ public class CountDownLatchTest {
 
    java.util.concurrent.CyclicBarrier 类是一种同步机制，它能够对处理一些算法的线程实现同步。换句话讲，它就是一个所有线程必须等待的一个栅栏，**直到所有线程都到达这里，然后所有线程才可以继续做其他事情。**
 
-![](../../img/多线程/4.1.png)
-
+![]({{ site.url }}/assets/img/多线程/4.1.png)
 
 **创建一个CyclicBarrier** ：
 
@@ -85,7 +93,7 @@ public class CyclicBarrierTest {
 
 ​      Exchanger是一个用于线程间协作的工具类。**Exchanger用于线程间的数据交换**。它提供一个同步点，两个线程可以交换彼此的数据。这两个线程通过exchange方法交换数据，如果第一个线程先执行exchange方法，它会一直等待第二个线程也执行exchange方法，**当两个线程都到达同步点时，这两个线程就可以交换数据**，将本线程生产出来的数据传递给对方。
 
-![](../../img/多线程/4.2.png)
+![]({{ site.url }}/assets/img/多线程/4.2.png)
 
 
 ```java

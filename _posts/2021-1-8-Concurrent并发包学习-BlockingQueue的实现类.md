@@ -1,3 +1,12 @@
+---
+title: Concurrent并发包学习-BlockingQueue的实现类
+date: 2021-1-8 23:29:53
+categories:
+- 多线程
+tags:
+- 多线程
+---
+
 ## 1、ArrayBlockingQueue
 
 ​     ArrayBlockingQueue 类实现了 BlockingQueue 接口。 ArrayBlockingQueue 是一个**有界**的阻塞队列，其内部实现是将对象放到一个**数组**里。以下是在使用 ArrayBlockingQueue 的时候对其初始化的一个示例： 

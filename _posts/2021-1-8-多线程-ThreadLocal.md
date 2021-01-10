@@ -1,8 +1,17 @@
+---
+title: 多线程学习—ThreadLocal
+date: 2021-1-8 23:29:53
+categories:
+- 多线程
+tags:
+- 多线程
+---
+
 ## 1、什么是ThreadLocal
 
   ThreadLocal是JDK包提供的，它提供了线程本地变量，也就是如果你创建了一个ThreadLocal变量，那么访问这个变量的每个线程都会有这个变量的一个**本地副本**。当多个线程操作这个变量时，实际操作的是自己本地内存里面的变量，从而避免了线程安全问题。
 
-![](../../img/多线程/8.1.jpeg)
+![]({{ site.url }}/assets/img/多线程/8.1.jpeg)
 
 
 ## 2、如何使用ThreadLocal？
@@ -59,7 +68,7 @@ threadTwo remove after :null
 
 ## 3、ThreadLocal的实现原理
 
-![](../../img/多线程/8.2.jpeg)
+![]({{ site.url }}/assets/img/多线程/8.2.jpeg)
 
 
 Thread类中有一个ThreadLocalMap类型的变量，ThreadLocal类通过set方法将变量存放在ThreadLocalMap变量中，当调用get方法时，再从当前线程的ThreadLocalMap中将其拿出来使用。

@@ -1,3 +1,12 @@
+---
+title: Java8学习—用Optional取代null
+date: 2021-1-8 23:29:53
+categories:
+- java8
+tags:
+- java8
+---
+
 ## 1、Optional类入门
 
 ​       Optional类是一个可以为null的容器对象。如果值存在则isPresent()方法会返回true，调用get()方法会返回该对象。*被Optional包装的对象最多只有一个*。
@@ -8,7 +17,7 @@
 
 ​              可以通过静态工厂方法Optional.empty创建一个**空**的Optioanl对象：
 
-          
+
 ```java
   Optional<Car>  car=Optional.empty();
 ```
@@ -27,7 +36,7 @@
 
 ​              还可以通过静态工厂方法Optional.ofNullable，可以创建一个允许null值的Optional对象：
 
-    
+
 ```java
       Optional<Car>  car=Optional.ofNullable(car);
 ```
@@ -45,7 +54,7 @@
 
 ###      2.5、使用flatMap从Optional对象中提取和转换值
 
- 
+
 ```java
   Optional<Person> optPerson = Optional.of(person);
    Optional<String> name =optPerson.map(Person::getCar)

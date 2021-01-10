@@ -1,10 +1,19 @@
+---
+title: Concurrent并发包学习-阻塞双端队列BlockingDeque
+date: 2021-1-8 23:29:53
+categories:
+- 多线程
+tags:
+- 多线程
+---
+
 ## 1、阻塞双端队列BlockingDeque
 
    BlockingDeque 类是一个双端队列，**BlockingDeque接口继承自BlockingQueue接口**，在不能够插入元素时，它将阻塞住试图插入元素的线程；在不能够抽取元素时，它将阻塞住试图抽取的线程。**双端队列是一个你可以从任意一端插入或者抽取元素的队列**。
 
 ​     在线程既是一个队列的生产者又是这个队列的消费者的时候可以使用到 BlockingDeque。如果生产者线程需要在队列的两端都可以插入数据，消费者线程需要在队列的两端都可以移除数据，这个时候也可以使用BlockingDeque。
 
-![](../../img/多线程/3.1.png)
+![]({{ site.url }}/assets/img/多线程/3.1.png)
 
 
 BlockingDeque 具有 4 组不同的方法用于插入、移除以及对双端队列中的元素进行检查。 
