@@ -1,6 +1,6 @@
 ---
-title: Redis学习——AOF和RDB
-date: 2021-1-8 23:29:53
+title: Redis学习—AOF和RDB
+date: 2021-1-25 23:29:53
 categories:
 - 大数据
 tags:
