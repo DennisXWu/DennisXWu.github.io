@@ -1,5 +1,5 @@
 ---
-title: Redis学习——SDS简单动态字符串
+title: Redis学习(1)—SDS简单动态字符串
 date: 2021-1-8 23:29:53
 categories:
 - 大数据
