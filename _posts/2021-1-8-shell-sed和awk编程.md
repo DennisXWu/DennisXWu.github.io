@@ -1,10 +1,10 @@
 ---
-title: Shell学习-sed和awk编程
+title: Shell编程学习-sed和awk编程
 date: 2021-1-8 23:29:53
 categories:
-- Shell
+- Linux
 tags:
-- Shell
+- Linux
 ---
 
 ## 1、Sed的工作原理
