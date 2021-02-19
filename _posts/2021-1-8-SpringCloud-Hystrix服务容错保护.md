@@ -2,9 +2,9 @@
 title: SpringCloud学习-Hystrix服务容错保护
 date: 2021-1-8 23:29:53
 categories:
-- SpringCloud
+- Spring
 tags:
-- SpringCloud
+- Spring
 ---
 
 ## 1、Hystrix容错保护原理

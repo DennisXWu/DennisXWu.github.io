@@ -2,9 +2,9 @@
 title: Java8学习—Lambda表达式
 date: 2021-1-8 23:29:53
 categories:
-- java8
+- Java基础
 tags:
-- java8
+- Java基础
 ---
 
 ## 1、什么是Lambda表达式？

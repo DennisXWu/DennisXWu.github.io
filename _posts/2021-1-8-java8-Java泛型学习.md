@@ -2,9 +2,9 @@
 title: Java8学习—Java泛型学习
 date: 2021-1-8 23:29:53
 categories:
-- java8
+- Java基础
 tags:
-- java8
+- Java基础
 ---
 
 ## 1、什么是泛型？

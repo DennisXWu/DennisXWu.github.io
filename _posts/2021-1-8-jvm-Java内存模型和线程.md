@@ -2,9 +2,9 @@
 title: jvm学习-Java内存模型和线程
 date: 2021-1-8 23:29:53
 categories:
-- jvm
+- Java基础
 tags:
-- jvm
+- Java基础
 ---
 
 ## 1、物理机的并发问题

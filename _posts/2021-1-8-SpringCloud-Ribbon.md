@@ -2,9 +2,9 @@
 title: SpringCloud学习-Ribbon
 date: 2021-1-8 23:29:53
 categories:
-- SpringCloud
+- Spring
 tags:
-- SpringCloud
+- Spring
 ---
 
 ## 1、什么是Ribbon？

@@ -2,9 +2,9 @@
 title: SpringBoot学习-消息队列
 date: 2021-1-8 23:29:53
 categories:
-- SpringBoot
+- Spring
 tags:
-- SpringBoot
+- Spring
 ---
 
 ## 1、什么是消息队列？

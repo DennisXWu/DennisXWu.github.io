@@ -2,9 +2,9 @@
 title: jvm学习-Java内存区域与溢出异常
 date: 2021-1-8 23:29:53
 categories:
-- jvm
+- Java基础
 tags:
-- jvm
+- Java基础
 ---
 
 # JVM学习—Java内存区域与溢出异常

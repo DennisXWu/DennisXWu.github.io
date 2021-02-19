@@ -2,9 +2,9 @@
 title: SpringBoot学习-Rest风格
 date: 2021-1-8 23:29:53
 categories:
-- SpringBoot
+- Spring
 tags:
-- SpringBoot
+- Spring
 ---
 
 ## 1、什么是REST风格

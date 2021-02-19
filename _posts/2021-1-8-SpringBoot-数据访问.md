@@ -2,9 +2,9 @@
 title: SpringBoot学习-数据访问
 date: 2021-1-8 23:29:53
 categories:
-- SpringBoot
+- Spring
 tags:
-- SpringBoot
+- Spring
 ---
 
 ## 1、Spring Data
