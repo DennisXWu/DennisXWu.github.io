@@ -1,5 +1,5 @@
 ---
-title: Java8学习—Java泛型学习
+title: Java学习—Java泛型
 date: 2021-1-8 23:29:53
 categories:
 - Java基础

@@ -2,9 +2,9 @@
 title: Shell编程学习-Shell基本指令
 date: 2021-1-8 23:29:53
 categories:
-- Linux
+- Shell
 tags:
-- Linux
+- Shell
 ---
 
 # 1、Vim编辑器

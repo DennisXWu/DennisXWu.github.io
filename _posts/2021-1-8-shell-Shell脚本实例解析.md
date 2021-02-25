@@ -2,9 +2,9 @@
 title: Shell编程学习-Shell脚本实例解析
 date: 2021-1-8 23:29:53
 categories:
-- Linux
+- Shell
 tags:
-- Linux
+- Shell
 ---
 
 ## 1、变量

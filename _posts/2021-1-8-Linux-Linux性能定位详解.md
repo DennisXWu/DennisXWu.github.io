@@ -2,9 +2,9 @@
 title: Linux性能定位详解
 date: 2021-1-8 23:29:53
 categories:
-- Linux
+- 操作系统
 tags:
-- Linux
+- 操作系统
 ---
 
 # 1、CPU
